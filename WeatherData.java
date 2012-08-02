@@ -4,6 +4,11 @@ public final class WeatherData {
   private float temperature;
   private float humidity;
   private float pressure;
+  private CurrentConditionsDisplay ccd;
+
+  public WeatherData() {
+    ccd = new CurrentConditionsDisplay;
+  }
 
   public float getTemperature() {
     return temperature;
@@ -18,6 +23,10 @@ public final class WeatherData {
   }
 
   public void measurementsChanged() {
-    // write your code here
+    ccd.update(
+               getTemperature(),
+               getHumidity(),
+               getPressure()
+              );
   }
 }
